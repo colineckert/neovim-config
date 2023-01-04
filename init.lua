@@ -1,0 +1,2 @@
+require("ceckert")
+print("hello")
