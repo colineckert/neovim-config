@@ -1,2 +1,2 @@
 require("ceckert")
-print("hello")
+
