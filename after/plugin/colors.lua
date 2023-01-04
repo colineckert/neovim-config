@@ -86,7 +86,7 @@ require("gruvbox").setup({
   bold = true,
   italic = true,
   strikethrough = true,
-  invert_selection = false,
+  invert_selection = true,
   invert_signs = false,
   invert_tabline = false,
   invert_intend_guides = false,
@@ -99,7 +99,7 @@ require("gruvbox").setup({
 })
 
 function ColorMyPencils(color)
-	color = color or "catppuccin"
+	color = color or "gruvbox"
 
 	vim.cmd.colorscheme(color)
 
