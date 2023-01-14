@@ -1,8 +1,8 @@
 require("catppuccin").setup({
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
         light = "latte",
-        dark = "macchiato",
+        dark = "mocha",
     },
     transparent_background = false,
     term_colors = false,
@@ -135,7 +135,7 @@ require("gruvbox").setup({
 })
 
 function ColorMyPencils(color)
-	color = color or "tokyonight"
+	color = color or "gruvbox"
 
 	vim.cmd.colorscheme(color)
 
