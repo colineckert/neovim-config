@@ -1,10 +1,10 @@
 require("catppuccin").setup({
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
         light = "latte",
-        dark = "macchiato",
+        dark = "mocha",
     },
-    transparent_background = true,
+    transparent_background = false,
     term_colors = false,
     dim_inactive = {
         enabled = false,
@@ -135,12 +135,12 @@ require("gruvbox").setup({
 })
 
 function ColorMyPencils(color)
-	color = color or "onedark"
+	color = color or "catppuccin"
 
 	vim.cmd.colorscheme(color)
 
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 ColorMyPencils()
