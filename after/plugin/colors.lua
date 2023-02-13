@@ -135,7 +135,7 @@ require("gruvbox").setup({
 })
 
 function ColorMyPencils(color)
-	color = color or "catppuccin"
+	color = color or "tokyonight"
 
 	vim.cmd.colorscheme(color)
 
