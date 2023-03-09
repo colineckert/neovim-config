@@ -1,8 +1,8 @@
 require("catppuccin").setup({
-    flavour = "mocha", -- latte, frappe, macchiato, mocha
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
     background = { -- :h background
         light = "latte",
-        dark = "mocha",
+        dark = "macchiato",
     },
     transparent_background = false,
     term_colors = false,
@@ -45,7 +45,7 @@ require("tokyonight").setup({
   -- or leave it empty to use the default settings
   style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
-  transparent = true, -- Enable this to disable setting the background color
+  transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
@@ -55,8 +55,8 @@ require("tokyonight").setup({
     functions = { italic = true },
     variables = {},
     -- Background styles. Can be "dark", "transparent" or "normal"
-    sidebars = "transparent", -- style for sidebars, see below
-    floats = "transparent", -- style for floating windows
+    sidebars = "", -- style for sidebars, see below
+    floats = "", -- style for floating windows
   },
   sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
   day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
@@ -131,7 +131,7 @@ require("gruvbox").setup({
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
-  transparent_mode = true,
+  transparent_mode = false,
 })
 
 function ColorMyPencils(color)
