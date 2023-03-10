@@ -1,8 +1,8 @@
 require("catppuccin").setup({
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
         light = "latte",
-        dark = "macchiato",
+        dark = "mocha",
     },
     transparent_background = false,
     term_colors = false,
@@ -24,7 +24,7 @@ require("catppuccin").setup({
         numbers = {},
         booleans = {},
         properties = {},
-        types = {},
+        types = { "bold" },
         operators = {},
     },
     color_overrides = {},
@@ -101,7 +101,7 @@ require('onedark').setup  {
 
     -- Lualine options --
     lualine = {
-        transparent = false, -- lualine center bar transparency
+        transparent = true, -- lualine center bar transparency
     },
 
     -- Custom Highlights --
