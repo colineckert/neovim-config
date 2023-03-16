@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
   use { "ellisonleao/gruvbox.nvim" }
   use 'navarasu/onedark.nvim'
   use 'folke/tokyonight.nvim'
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
