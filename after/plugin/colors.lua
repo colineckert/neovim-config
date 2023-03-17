@@ -143,13 +143,13 @@ require('rose-pine').setup({
 	dim_nc_background = false,
 	disable_background = false,
 	disable_float_background = false,
-	disable_italics = true,
+	disable_italics = false,
 
 	--- @usage string hex value or named color from rosepinetheme.com/palette
 	groups = {
-		background = 'base',
+		background = 'transparent',
 		background_nc = '_experimental_nc',
-		panel = 'surface',
+		panel = 'transparent',
 		panel_nc = 'base',
 		border = 'highlight_med',
 		comment = 'muted',
@@ -186,12 +186,12 @@ require('rose-pine').setup({
 
 
 function ColorMyPencils(color)
-	color = color or "tokyonight"
+	color = color or "rose-pine"
 
 	vim.cmd.colorscheme(color)
 
-	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 ColorMyPencils()
