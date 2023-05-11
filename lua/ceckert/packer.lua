@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
   use 'navarasu/onedark.nvim'
   use 'folke/tokyonight.nvim'
   use({ 'rose-pine/neovim', as = 'rose-pine' })
+  use 'olimorris/onedarkpro.nvim'
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
