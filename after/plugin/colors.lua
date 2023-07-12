@@ -101,7 +101,11 @@ require("gruvbox").setup({
   undercurl = true,
   underline = true,
   bold = true,
-  italic = true,
+  italic = {
+    strings = false,
+    operators = true,
+    comments = true,
+  },
   strikethrough = true,
   invert_selection = true,
   invert_signs = false,
@@ -167,7 +171,7 @@ require('rose-pine').setup({
 
 
 function ColorMyPencils(color)
-	color = color or "tokyonight"
+	color = color or "rose-pine"
 
 	vim.cmd.colorscheme(color)
 
