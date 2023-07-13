@@ -127,14 +127,14 @@ require('rose-pine').setup({
 	bold_vert_split = false,
 	dim_nc_background = false,
 	disable_background = true,
-	disable_float_background = true,
+	disable_float_background = false,
 	disable_italics = true,
 
 	--- @usage string hex value or named color from rosepinetheme.com/palette
 	groups = {
 		background = 'transparent',
 		background_nc = '_experimental_nc',
-		panel = 'transparent',
+		panel = 'surface',
 		panel_nc = 'base',
 		border = 'highlight_med',
 		comment = 'muted',
