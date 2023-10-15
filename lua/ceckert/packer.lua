@@ -56,7 +56,7 @@ return require('packer').startup(function(use)
   }
 
   use("folke/zen-mode.nvim")
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
 
   use 'windwp/nvim-ts-autotag'
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
