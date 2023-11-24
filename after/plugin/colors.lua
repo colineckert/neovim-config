@@ -43,9 +43,9 @@ require("catppuccin").setup({
 require("tokyonight").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
-  style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
-  transparent = false, -- Enable this to disable setting the background color
+  transparent = true, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
@@ -55,8 +55,8 @@ require("tokyonight").setup({
     functions = { italic = true },
     variables = {},
     -- Background styles. Can be "dark", "transparent" or "normal"
-    sidebars = "", -- style for sidebars, see below
-    floats = "", -- style for floating windows
+    sidebars = "transparent", -- style for sidebars, see below
+    floats = "transparent", -- style for floating windows
   },
   sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
   day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
@@ -175,12 +175,12 @@ require('rose-pine').setup({
 
 
 function ColorMyPencils(color)
-	color = color or 'tokyonight'
+	color = color or 'rose-pine'
 
 	vim.cmd.colorscheme(color)
 
-  -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 ColorMyPencils()
