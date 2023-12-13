@@ -19,7 +19,11 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-context'
   use('nvim-treesitter/playground')
-  use('theprimeagen/harpoon')
+  use {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      requires = { {"nvim-lua/plenary.nvim"} }
+  }
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use {
