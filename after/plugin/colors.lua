@@ -1,8 +1,8 @@
 require("catppuccin").setup({
-    flavour = "mocha", -- latte, frappe, macchiato, mocha
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
     background = { -- :h background
         light = "latte",
-        dark = "mocha",
+        dark = "macchiato",
     },
     transparent_background = false,
     term_colors = true,
@@ -43,7 +43,7 @@ require("catppuccin").setup({
 require("tokyonight").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
-  style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
@@ -97,7 +97,6 @@ require("onedarkpro").setup({
   }
 })
 
--- Default options:
 require("gruvbox").setup({
   terminal_colors = true, -- add neovim terminal colors
   undercurl = true,
@@ -107,7 +106,7 @@ require("gruvbox").setup({
     strings = false,
     emphasis = true,
     comments = true,
-    operators = false,
+    operators = true,
     folds = true,
   },
   strikethrough = true,
@@ -130,7 +129,7 @@ require('rose-pine').setup({
 	dark_variant = 'main',
 	bold_vert_split = false,
 	dim_nc_background = false,
-	disable_background = true,
+	disable_background = false,
 	disable_float_background = false,
 	disable_italics = true,
 
@@ -175,7 +174,7 @@ require('rose-pine').setup({
 
 
 function ColorMyPencils(color)
-	color = color or 'rose-pine'
+	color = color or 'tokyonight'
 
 	vim.cmd.colorscheme(color)
 
