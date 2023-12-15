@@ -10,7 +10,7 @@ vim.keymap.set('n', '<leader>ps', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 vim.keymap.set('n', '<leader>fr', builtin.resume, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>")
 
 -- REFERENCE
 -- undo = {
