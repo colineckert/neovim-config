@@ -76,27 +76,6 @@ require("tokyonight").setup({
   on_highlights = function(highlights, colors) end,
 })
 
-require("onedarkpro").setup({
-  styles = {
-    types = "NONE",
-    methods = "NONE",
-    numbers = "NONE",
-    strings = "NONE",
-    comments = "italic",
-    keywords = "italic",
-    constants = "NONE",
-    functions = "italic",
-    operators = "NONE",
-    variables = "NONE",
-    parameters = "italic",
-    conditionals = "italic",
-    virtual_text = "NONE",
-  },
-  options = {
-    transparency = true,
-  }
-})
-
 require("gruvbox").setup({
   terminal_colors = true, -- add neovim terminal colors
   undercurl = true,

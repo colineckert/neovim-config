@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/Users/colineckert/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
+  ["flash.nvim"] = {
+    loaded = true,
+    path = "/Users/colineckert/.local/share/nvim/site/pack/packer/start/flash.nvim",
+    url = "https://github.com/folke/flash.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/colineckert/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -209,11 +214,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/colineckert/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
-  },
-  ["onedarkpro.nvim"] = {
-    loaded = true,
-    path = "/Users/colineckert/.local/share/nvim/site/pack/packer/start/onedarkpro.nvim",
-    url = "https://github.com/olimorris/onedarkpro.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
