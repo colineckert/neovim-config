@@ -31,10 +31,12 @@ return require('packer').startup(function(use)
     config = function() require("todo-comments").setup {} end
   }
   use('sindrets/diffview.nvim')
+
+  -- colorschemes
   use { "catppuccin/nvim", as = "catppuccin" }
-  use { "ellisonleao/gruvbox.nvim" }
-  use 'navarasu/onedark.nvim'
-  use 'folke/tokyonight.nvim'
+  use("ellisonleao/gruvbox.nvim")
+  use('navarasu/onedark.nvim')
+  use('folke/tokyonight.nvim')
   use({ 'rose-pine/neovim', as = 'rose-pine' })
 
   use {
