@@ -28,4 +28,4 @@ prettier.setup {
 }
 
 
-vim.keymap.set('n', '<leader>fP', ':Prettier<CR>', {})
+vim.keymap.set('n', '<leader>sp', ':Prettier<CR>', {})
