@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
   }
   use('onsails/lspkind.nvim')
 
-  use('jose-elias-alvarez/null-ls.nvim')
+  use('nvimtools/none-ls.nvim')
   use('MunifTanjim/prettier.nvim')
   use("github/copilot.vim")
 
