@@ -4,6 +4,8 @@ return {
 	dependencies = {
 		-- LSP Support
 		"neovim/nvim-lspconfig",
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-nvim-lua",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	},
