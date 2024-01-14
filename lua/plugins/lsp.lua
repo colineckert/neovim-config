@@ -42,7 +42,7 @@ return {
 			vim.keymap.set("n", "<leader>vrn", function()
 				vim.lsp.buf.rename()
 			end, opts)
-			vim.keymap.set("i", "<C-h>", function()
+			vim.keymap.set("n", "<leader>vsh", function()
 				vim.lsp.buf.signature_help()
 			end, opts)
 		end)
