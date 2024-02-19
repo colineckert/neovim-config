@@ -6,6 +6,8 @@ return {
 		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-nvim-lua",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-path",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	},
@@ -45,7 +47,34 @@ return {
 			vim.keymap.set("n", "<leader>vsh", function()
 				vim.lsp.buf.signature_help()
 			end, opts)
+
+			local cmp = require("cmp")
+			cmp.setup.cmdline("/", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			})
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{
+						name = "cmdline",
+						option = {
+							ignore_cmds = { "Man", "!" },
+						},
+					},
+				}),
+			})
 		end)
+
+		require("cmp").setup({
+			sources = {
+				{ name = "path" },
+			},
+		})
 
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
