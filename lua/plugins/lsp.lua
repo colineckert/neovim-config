@@ -70,12 +70,6 @@ return {
 			})
 		end)
 
-		require("cmp").setup({
-			sources = {
-				{ name = "path" },
-			},
-		})
-
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
 			ensure_installed = { "tsserver", "rust_analyzer", "gopls" },
