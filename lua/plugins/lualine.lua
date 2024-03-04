@@ -23,7 +23,23 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff" },
+				lualine_b = {
+					"branch",
+					"diff",
+					{
+						"diagnostics",
+
+						-- Table of diagnostic sources, available sources are:
+						--   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
+						sources = { "nvim_diagnostic", "nvim_lsp", "vim_lsp" },
+						-- Displays diagnostics for the defined severity types
+						sections = { "error", "warn", "info", "hint" },
+						symbols = { error = " ", warn = " ", info = " ", hint = " " },
+						colored = true, -- Displays diagnostics status in color if set to true.
+						update_in_insert = false, -- Update diagnostics in insert mode.
+						always_visible = false, -- Show diagnostics even if there are none.
+					},
+				},
 				lualine_c = {
 					{
 						"filename",
@@ -46,28 +62,6 @@ return {
 					},
 				},
 				lualine_x = {
-					{
-						"diagnostics",
-
-						-- Table of diagnostic sources, available sources are:
-						--   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
-						sources = { "nvim_diagnostic", "nvim_lsp", "vim_lsp" },
-						symbols = { error = " ", warn = " ", info = " ", hint = " " },
-
-						-- Displays diagnostics for the defined severity types
-						sections = { "error", "warn", "info", "hint" },
-
-						diagnostics_color = {
-							-- Same values as the general color option can be used here.
-							error = "DiagnosticError", -- Changes diagnostics' error color.
-							warn = "DiagnosticWarn", -- Changes diagnostics' warn color.
-							info = "DiagnosticInfo", -- Changes diagnostics' info color.
-							hint = "DiagnosticHint", -- Changes diagnostics' hint color.
-						},
-						colored = true, -- Displays diagnostics status in color if set to true.
-						update_in_insert = false, -- Update diagnostics in insert mode.
-						always_visible = false, -- Show diagnostics even if there are none.
-					},
 					"encoding",
 					"fileformat",
 					"filetype",
