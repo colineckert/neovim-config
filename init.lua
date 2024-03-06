@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>dc", ":DiffviewClose<CR>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>R", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "gh", vim.diagnostic.open_float)
 
