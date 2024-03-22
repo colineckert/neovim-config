@@ -1,4 +1,5 @@
 return {
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"rose-pine/neovim",
 		lazy = false,
@@ -69,7 +70,6 @@ return {
 			-- vim.cmd("colorscheme rose-pine")
 		end,
 	},
-
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
