@@ -16,7 +16,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.o.cursorline = false
+vim.o.cursorline = true
 
 vim.opt.termguicolors = true
 
