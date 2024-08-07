@@ -132,6 +132,23 @@ return {
 		-- from rafamadriz/friendly-snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
 
+		local _border = "rounded"
+
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+			border = _border,
+		})
+
+		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+			border = _border,
+		})
+		-- Add border to the diagnostic popup window
+		vim.diagnostic.config({
+			virtual_text = {
+				prefix = "●", -- Could be '●', '▎', 'x', '■', , 
+			},
+			float = { border = _border },
+		})
+
 		cmp.setup({
 			snippet = {
 				expand = function(args)
@@ -139,6 +156,10 @@ return {
 				end,
 			},
 			completion = { completeopt = "menu,menuone,noinsert" },
+			-- window = {
+			-- 	completion = cmp.config.window.bordered(),
+			-- 	documentation = cmp.config.window.bordered(),
+			-- },
 
 			-- For an understanding of why these mappings were
 			-- chosen, you will need to read `:help ins-completion`
@@ -162,8 +183,8 @@ return {
 				-- If you prefer more traditional completion keymaps,
 				-- you can uncomment the following lines
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<Tab>"] = cmp.mapping.select_next_item(),
-				["<S-Tab>"] = cmp.mapping.select_prev_item(),
+				-- ["<Tab>"] = cmp.mapping.select_next_item(),
+				-- ["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
 				-- Manually trigger a completion from nvim-cmp.
 				--  Generally you don't need this, because nvim-cmp will display
