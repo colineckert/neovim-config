@@ -19,10 +19,6 @@ return {
 				vim.keymap.set("n", keys, func, { buffer = bufnr, remap = false, desc = "LSP: " .. desc })
 			end
 
-			-- vim.keymap.set("n", "gd", function()
-			-- 	vim.lsp.buf.definition()
-			-- end, opts)
-
 			-- Jump to the definition of the word under your cursor.
 			--  This is where a variable was first declared, or where a function is defined, etc.
 			--  To jump back, press <C-T>.
