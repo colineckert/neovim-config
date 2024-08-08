@@ -97,7 +97,6 @@ return {
 				gopls = function()
 					local lspconfig = require("lspconfig")
 					lspconfig.gopls.setup({
-						capabilities = capabilities,
 						settings = {
 							gopls = {
 								analyses = {
@@ -112,7 +111,6 @@ return {
 				lua_ls = function()
 					local lspconfig = require("lspconfig")
 					lspconfig.lua_ls.setup({
-						capabilities = capabilities,
 						settings = {
 							Lua = {
 								runtime = { version = "Lua 5.1" },
@@ -144,7 +142,7 @@ return {
 		-- Add border to the diagnostic popup window
 		vim.diagnostic.config({
 			virtual_text = {
-				prefix = "●", -- Could be '●', '▎', 'x', '■', , 
+				prefix = "■", -- Could be '●', '▎', 'x', '■', , 
 			},
 			float = { border = _border },
 		})
