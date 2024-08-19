@@ -5,4 +5,12 @@ return {
 	"kyazdani42/nvim-web-devicons",
 	"windwp/nvim-ts-autotag",
 	"tpope/vim-sleuth",
+	{
+		"dmmulroy/tsc.nvim",
+		config = function()
+			require("tsc").setup()
+			vim.keymap.set("n", "<leader>to", ":TSCOpen<CR>")
+			vim.keymap.set("n", "<leader>tc", ":TSCClose<CR>")
+		end,
+	},
 }
