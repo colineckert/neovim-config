@@ -142,7 +142,7 @@ return {
 		-- Add border to the diagnostic popup window
 		vim.diagnostic.config({
 			virtual_text = {
-				prefix = "■", -- Could be '●', '▎', 'x', '■', , 
+				prefix = "", -- Could be '●', '▎', 'x', '■', , 
 			},
 			float = { border = _border },
 		})
