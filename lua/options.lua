@@ -87,3 +87,15 @@ vim.keymap.set("n", "<leader>rw", ":RotateWindows<cr>", { desc = "[R]otate [W]in
 
 -- Press gx to open the link under the cursor
 vim.keymap.set("n", "gx", ":sil !open <cWORD><cr>", { silent = true })
+
+-- Reselect the last visual selection
+vim.keymap.set("x", "<", function()
+	-- Move selected text up/down in visual mode
+	vim.cmd("normal! <<")
+	vim.cmd("normal! gv")
+end)
+
+vim.keymap.set("x", ">", function()
+	vim.cmd("normal! >>")
+	vim.cmd("normal! gv")
+end)
