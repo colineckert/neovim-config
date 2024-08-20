@@ -25,6 +25,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("options")
+require("rotate_window")
 require("lazy").setup("plugins")
 
 -- Color scheme
