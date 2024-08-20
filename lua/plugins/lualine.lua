@@ -62,8 +62,8 @@ return {
 					},
 				},
 				lualine_x = {
-					"encoding",
-					"fileformat",
+					-- "encoding",
+					-- "fileformat",
 					"filetype",
 				},
 				lualine_y = { "progress" },
