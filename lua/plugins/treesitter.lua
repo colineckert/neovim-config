@@ -19,9 +19,9 @@ return {
 			-- enable indentation
 			indent = { enable = true },
 			-- enable autotagging (w/ nvim-ts-autotag plugin)
-			autotag = {
-				enable = true,
-			},
+			-- autotag = {
+			-- 	enable = true,
+			-- },
 			-- ensure these language parsers are installed
 			ensure_installed = {
 				"json",
@@ -57,6 +57,6 @@ return {
 		require("ts_context_commentstring").setup({})
 
 		-- enable nvim-ts-autotag plugin for autotagging
-		require("nvim-ts-autotag").setup({})
+		require("nvim-ts-autotag").setup()
 	end,
 }
