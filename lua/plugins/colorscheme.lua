@@ -46,9 +46,14 @@ return {
 					nvimtree = true,
 					treesitter = true,
 					notify = false,
+					indent_blankline = {
+						enabled = false,
+						scope_color = "sapphire",
+						colored_indent_levels = false,
+					},
 					mini = {
 						enabled = true,
-						indentscope_color = "",
+						indentscope_color = "sapphire",
 					},
 					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 				},
