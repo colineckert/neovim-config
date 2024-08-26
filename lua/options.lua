@@ -3,7 +3,6 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.mouse = "a"
-vim.opt.conceallevel = 1
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
