@@ -55,5 +55,8 @@ return {
 
 		-- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
 		require("ts_context_commentstring").setup({})
+
+		-- enable nvim-ts-autotag plugin for autotagging
+		require("nvim-ts-autotag").setup({})
 	end,
 }
