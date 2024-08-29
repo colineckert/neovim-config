@@ -41,20 +41,21 @@ return {
 				custom_highlights = {},
 				default_integrations = true,
 				integrations = {
+					treesitter = true,
 					cmp = true,
 					gitsigns = true,
-					nvimtree = true,
-					treesitter = true,
+					markdown = true,
+					nvimtree = false,
 					notify = false,
-					indent_blankline = {
-						enabled = false,
-						scope_color = "sapphire",
-						colored_indent_levels = false,
-					},
-					mini = {
-						enabled = true,
-						indentscope_color = "sapphire",
-					},
+					-- indent_blankline = {
+					-- 	enabled = false,
+					-- 	scope_color = "sapphire",
+					-- 	colored_indent_levels = false,
+					-- },
+					-- mini = {
+					-- 	enabled = true,
+					-- 	indentscope_color = "sapphire",
+					-- },
 					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 				},
 			})

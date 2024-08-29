@@ -6,4 +6,5 @@ return {
 	"windwp/nvim-ts-autotag",
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
+	"MeanderingProgrammer/render-markdown.nvim",
 }
