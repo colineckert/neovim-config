@@ -130,6 +130,7 @@ return {
 					["@function.builtin"] = { italic = true },
 					["@function.macro"] = { italic = true },
 					["@function.method"] = { italic = true },
+					["@function.method.call"] = { italic = true },
 					["@conditional"] = { italic = true },
 					["@keyword.conditional"] = { italic = true },
 					-- ["@parameter"] = { italic = true },
