@@ -47,6 +47,10 @@ return {
 					markdown = true,
 					nvimtree = false,
 					notify = false,
+					diffview = true,
+					fidget = true,
+					harpoon = true,
+					mason = true,
 					-- indent_blankline = {
 					-- 	enabled = false,
 					-- 	scope_color = "sapphire",
