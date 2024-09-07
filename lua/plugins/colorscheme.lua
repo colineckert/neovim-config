@@ -56,11 +56,10 @@ return {
 					-- 	scope_color = "sapphire",
 					-- 	colored_indent_levels = false,
 					-- },
-					-- mini = {
-					-- 	enabled = true,
-					-- 	indentscope_color = "sapphire",
-					-- },
-					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+					mini = {
+						enabled = true,
+						indentscope_color = "sapphire",
+					},
 				},
 			})
 		end,
