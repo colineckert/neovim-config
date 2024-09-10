@@ -143,17 +143,18 @@ return {
 				pyright = {},
 				sqlls = {},
 				tailwindcss = {},
-				tsserver = {
-					settings = {
-						maxTsServerMemory = 12288,
-						typescript = {
-							inlayHints = tsserver_inlay_hints,
-						},
-						javascript = {
-							inlayHints = tsserver_inlay_hints,
-						},
-					},
-				},
+				-- tsserver = {
+				-- 	settings = {
+				-- 		maxTsServerMemory = 12288,
+				-- 		typescript = {
+				-- 			inlayHints = tsserver_inlay_hints,
+				-- 		},
+				-- 		javascript = {
+				-- 			inlayHints = tsserver_inlay_hints,
+				-- 		},
+				-- 	},
+				-- },
+				ts_ls = {},
 				gopls = {
 					settings = {
 						gopls = {
@@ -218,19 +219,6 @@ return {
 			vim.diagnostic.config({
 				float = {
 					border = "rounded",
-				},
-			})
-		end,
-	},
-	{
-		"j-hui/fidget.nvim",
-		tag = "legacy",
-		event = { "BufEnter" },
-		config = function()
-			-- Turn on LSP, formatting, and linting status and progress information
-			require("fidget").setup({
-				text = {
-					spinner = "dots_negative",
 				},
 			})
 		end,

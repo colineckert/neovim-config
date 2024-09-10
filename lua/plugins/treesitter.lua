@@ -42,6 +42,10 @@ return {
 				"gitignore",
 				"query",
 			},
+			modules = {},
+			sync_install = false,
+			auto_install = true,
+			ignore_install = {},
 			incremental_selection = {
 				enable = true,
 				keymaps = {
