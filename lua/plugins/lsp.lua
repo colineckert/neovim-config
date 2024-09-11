@@ -143,18 +143,17 @@ return {
 				pyright = {},
 				sqlls = {},
 				tailwindcss = {},
-				-- tsserver = {
-				-- 	settings = {
-				-- 		maxTsServerMemory = 12288,
-				-- 		typescript = {
-				-- 			inlayHints = tsserver_inlay_hints,
-				-- 		},
-				-- 		javascript = {
-				-- 			inlayHints = tsserver_inlay_hints,
-				-- 		},
-				-- 	},
-				-- },
-				ts_ls = {},
+				ts_ls = {
+					settings = {
+						maxTsServerMemory = 12288,
+						typescript = {
+							inlayHints = tsserver_inlay_hints,
+						},
+						javascript = {
+							inlayHints = tsserver_inlay_hints,
+						},
+					},
+				},
 				gopls = {
 					settings = {
 						gopls = {
