@@ -24,8 +24,8 @@ return {
 			},
 		})
 
-		vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-		vim.api.nvim_set_keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "<leader>cc", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("v", "<leader>cc", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("n", "<leader>?", "<cmd>CodeCompanionToggle<cr>", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("v", "<leader>?", "<cmd>CodeCompanionToggle<cr>", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionAdd<cr>", { noremap = true, silent = true })
