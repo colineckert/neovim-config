@@ -12,7 +12,7 @@ return {
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
+		vim.keymap.set("n", "<leader>sS", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
@@ -22,6 +22,9 @@ return {
 		vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "[S]earch [U]ndo" })
 		vim.keymap.set("n", "<leader>sc", "<cmd>Telescope git_commits<cr>", { desc = "[S]earch [C]ommits" })
 		vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<CR>", { desc = "[S]earch [T]odo" })
+		vim.keymap.set("n", "<leader>ss", function()
+			builtin.lsp_document_symbols({ symbols = { "method", "function" } })
+		end, { desc = "[S]earch [S]ymbols" })
 
 		vim.keymap.set("n", "<leader>ps", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
