@@ -23,7 +23,7 @@ return {
 		vim.keymap.set("n", "<leader>sc", "<cmd>Telescope git_commits<cr>", { desc = "[S]earch [C]ommits" })
 		vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<CR>", { desc = "[S]earch [T]odo" })
 		vim.keymap.set("n", "<leader>ss", function()
-			builtin.lsp_document_symbols({ symbols = { "method", "function" } })
+			builtin.lsp_dynamic_workspace_symbols({ symbols = { "function", "method" } })
 		end, { desc = "[S]earch [S]ymbols" })
 
 		vim.keymap.set("n", "<leader>ps", function()
