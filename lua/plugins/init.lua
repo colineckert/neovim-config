@@ -5,4 +5,5 @@ return {
 	"windwp/nvim-ts-autotag",
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
+	"github/copilot.vim",
 }
