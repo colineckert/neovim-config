@@ -22,6 +22,21 @@ return {
 		vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "[S]earch [U]ndo" })
 		vim.keymap.set("n", "<leader>sc", "<cmd>Telescope git_commits<cr>", { desc = "[S]earch [C]ommits" })
 		vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<CR>", { desc = "[S]earch [T]odo" })
+
+		vim.keymap.set(
+			"n",
+			"<leader>bs",
+			require("telescope.builtin").lsp_document_symbols,
+			{ desc = "LSP: [B]uffer [S]ymbols" }
+		)
+
+		vim.keymap.set(
+			"n",
+			"<leader>ws",
+			require("telescope.builtin").lsp_workspace_symbols,
+			{ desc = "LSP: [W]orkspace [S]ymbols" }
+		)
+
 		vim.keymap.set("n", "<leader>ss", function()
 			builtin.lsp_dynamic_workspace_symbols({ symbols = { "function", "method" } })
 		end, { desc = "[S]earch [S]ymbols" })
