@@ -110,7 +110,6 @@ return {
 			local servers = {
 				-- LSP Servers
 				bashls = {},
-				biome = {},
 				cssls = {},
 				eslint = {
 					autostart = false,
@@ -138,6 +137,7 @@ return {
 						},
 					},
 				},
+				prismals = {},
 				marksman = {},
 				nil_ls = {},
 				pyright = {},
