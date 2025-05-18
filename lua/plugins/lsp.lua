@@ -69,11 +69,12 @@ return {
 				map("K", vim.lsp.buf.hover, "Hover Documentation")
 			end
 
-			-- Default handlers for LSP
-			local default_handlers = {
-				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-				["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
-			}
+			-- Function to run when neovim connects to a Lsp client
+			---@diagnostic disable-next-line: unused-local
+			local on_attach = function(_client, buffer_number)
+				-- Pass the current buffer to map lsp keybinds
+				map_lsp_keybinds(buffer_number)
+			end
 
 			local tsserver_inlay_hints = {
 				includeInlayEnumMemberValueHints = true,
@@ -85,20 +86,6 @@ return {
 				includeInlayVariableTypeHints = true,
 				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
 			}
-
-			-- Function to run when neovim connects to a Lsp client
-			---@diagnostic disable-next-line: unused-local
-			local on_attach = function(_client, buffer_number)
-				-- Pass the current buffer to map lsp keybinds
-				map_lsp_keybinds(buffer_number)
-			end
-
-			-- LSP servers and clients are able to communicate to each other what features they support.
-			--  By default, Neovim doesn't support everything that is in the LSP Specification.
-			--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			-- LSP servers to install (see list here: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers )
 			--  Add any additional override configuration in the following tables. Available keys are:
@@ -142,7 +129,9 @@ return {
 				nil_ls = {},
 				pyright = {},
 				sqlls = {},
-				tailwindcss = {},
+				tailwindcss = {
+					filetypes = { "typescriptreact", "javascriptreact", "html" },
+				},
 				ts_ls = {
 					settings = {
 						maxTsServerMemory = 12288,
@@ -154,16 +143,6 @@ return {
 						},
 					},
 				},
-				gopls = {
-					settings = {
-						gopls = {
-							analyses = {
-								unusedparams = true,
-							},
-							staticcheck = true,
-						},
-					},
-				},
 				yamlls = {},
 			}
 
@@ -172,10 +151,8 @@ return {
 				stylua = {},
 			}
 
-			local manually_installed_servers = {}
-
+			local manually_installed_servers = { "gopls", "ts_ls", "eslint", "lua_ls" }
 			local mason_tools_to_install = vim.tbl_keys(vim.tbl_deep_extend("force", {}, servers, formatters))
-
 			local ensure_installed = vim.tbl_filter(function(name)
 				return not vim.tbl_contains(manually_installed_servers, name)
 			end, mason_tools_to_install)
@@ -188,15 +165,23 @@ return {
 				ensure_installed = ensure_installed,
 			})
 
-			-- Iterate over our servers and set them up
+			-- LSP servers and clients are able to communicate to each other what features they support.
+			--  By default, Neovim doesn't support everything that is in the LSP specification.
+			--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
+			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+			-- Setup each LSP server. We merge in any server-specific capabilities by passing
+			-- the existing config.capabilities to blink.cmp.get_lsp_capabilities.
 			for name, config in pairs(servers) do
 				require("lspconfig")[name].setup({
 					autostart = config.autostart,
 					cmd = config.cmd,
 					capabilities = capabilities,
 					filetypes = config.filetypes,
-					handlers = vim.tbl_deep_extend("force", {}, default_handlers, config.handlers or {}),
-					on_attach = on_attach,
+					handlers = vim.tbl_deep_extend("force", {}, config.handlers or {}),
+					on_attach = config.on_attach or on_attach,
 					settings = config.settings,
 					root_dir = config.root_dir,
 				})
@@ -209,12 +194,14 @@ return {
 			-- Configure borders for LspInfo UI and diagnostics
 			require("lspconfig.ui.windows").default_options.border = "rounded"
 
-			-- Configure diagnostics border
-			vim.diagnostic.config({
-				float = {
-					border = "rounded",
-				},
-			})
+			local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+			---@diagnostic disable-next-line: duplicate-set-field
+			function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+				opts = opts or {}
+				opts.border = opts.border or "rounded"
+
+				return orig_util_open_floating_preview(contents, syntax, opts, ...)
+			end
 		end,
 	},
 }
