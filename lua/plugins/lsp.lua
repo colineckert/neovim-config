@@ -202,16 +202,11 @@ return {
 				})
 			end
 
-			-- Setup mason so it can manage 3rd party LSP servers
-			require("mason").setup({
-				ui = {
-					border = "rounded",
-				},
-			})
-
+			-- Setup Mason for managing external LSP servers
+			require("mason").setup({ ui = { border = "rounded" } })
 			require("mason-lspconfig").setup()
 
-			-- Configure borderd for LspInfo ui
+			-- Configure borders for LspInfo UI and diagnostics
 			require("lspconfig.ui.windows").default_options.border = "rounded"
 
 			-- Configure diagnostics border
