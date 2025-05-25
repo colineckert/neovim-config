@@ -6,7 +6,6 @@ return {
 	},
 	opts = {
 		strategies = {
-			-- Change the default chat adapter
 			chat = {
 				adapter = "copilot",
 			},

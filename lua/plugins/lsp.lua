@@ -151,7 +151,7 @@ return {
 				stylua = {},
 			}
 
-			local manually_installed_servers = { "gopls", "ts_ls", "eslint", "lua_ls" }
+			local manually_installed_servers = {}
 			local mason_tools_to_install = vim.tbl_keys(vim.tbl_deep_extend("force", {}, servers, formatters))
 			local ensure_installed = vim.tbl_filter(function(name)
 				return not vim.tbl_contains(manually_installed_servers, name)
