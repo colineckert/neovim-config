@@ -66,3 +66,19 @@ vim.keymap.set("x", ">", function()
 	vim.cmd("normal! >>")
 	vim.cmd("normal! gv")
 end)
+
+-- CodeCompanion
+vim.keymap.set(
+	"n",
+	"<leader>ai",
+	"<cmd>CodeCompanionChat Toggle<cr>",
+	{ desc = "Toggle Code Companion chat", noremap = true, silent = true }
+)
+vim.keymap.set(
+	"x",
+	"<leader>ai",
+	"<cmd>'<,'>CodeCompanion<cr>",
+	{ desc = "Prompt Code Companion on the current selection", noremap = true, silent = true }
+)
+
+vim.cmd([[cab cc CodeCompanion]])
