@@ -2,7 +2,7 @@ require("user")
 
 -- Color scheme
 function ColorMyPencils(color)
-	color = color or "catppuccin-mocha"
+	color = color or "rose-pine-moon"
 
 	vim.cmd.colorscheme(color)
 
