@@ -175,7 +175,7 @@ return {
 			-- Setup each LSP server. We merge in any server-specific capabilities by passing
 			-- the existing config.capabilities to blink.cmp.get_lsp_capabilities.
 			for name, config in pairs(servers) do
-				require("lspconfig")[name].setup({
+				vim.lsp.config(name, {
 					autostart = config.autostart,
 					cmd = config.cmd,
 					capabilities = capabilities,
@@ -185,6 +185,7 @@ return {
 					settings = config.settings,
 					root_dir = config.root_dir,
 				})
+				vim.lsp.enable(name)
 			end
 
 			-- Setup Mason for managing external LSP servers
