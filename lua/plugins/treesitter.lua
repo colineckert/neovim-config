@@ -19,9 +19,41 @@ return {
 			-- enable indentation
 			indent = { enable = true },
 			-- enable autotagging (w/ nvim-ts-autotag plugin)
-			-- autotag = {
-			-- 	enable = true,
-			-- },
+			autotag = {
+				enable = true,
+			},
+			textobjects = {
+				move = {
+					enable = true,
+					set_jumps = true,
+					goto_next_start = {
+						["]f"] = "@function.outer",
+						["]]"] = "@class.outer",
+					},
+					goto_next_end = {
+						["]F"] = "@function.outer",
+						["]["] = "@class.outer",
+					},
+					goto_previous_start = {
+						["[f"] = "@function.outer",
+						["[["] = "@class.outer",
+					},
+					goto_previous_end = {
+						["[F"] = "@function.outer",
+						["[]"] = "@class.outer",
+					},
+				},
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["af"] = "@function.outer",
+						["if"] = "@function.inner",
+						["ac"] = "@class.outer",
+						["ic"] = "@class.inner",
+					},
+				},
+			},
 			-- ensure these language parsers are installed
 			ensure_installed = {
 				"json",

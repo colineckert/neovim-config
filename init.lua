@@ -1,3 +1,5 @@
+vim.opt.termguicolors = true
+
 require("user")
 
 -- Color scheme
