@@ -19,9 +19,9 @@ return {
 			-- enable indentation
 			indent = { enable = true },
 			-- enable autotagging (w/ nvim-ts-autotag plugin)
-			autotag = {
-				enable = true,
-			},
+			-- autotag = {
+			-- 	enable = true,
+			-- },
 			textobjects = {
 				move = {
 					enable = true,

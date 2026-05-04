@@ -1,6 +1,6 @@
--- local mocha = require("catppuccin.palettes").get_palette("mocha")
---
--- vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = mocha.sapphire })
+local mocha = require("catppuccin.palettes").get_palette("mocha")
+
+vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = mocha.sapphire })
 
 local filtered_message = { "No information available" }
 
@@ -15,7 +15,7 @@ return {
 			dim = { enabled = true },
 			git = { enabled = true },
 			gitbrowse = { enabled = true },
-			indent = { enabled = false },
+			indent = { enabled = true },
 			notifier = {
 				enabled = true,
 				timeout = 3000,
