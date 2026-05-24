@@ -15,7 +15,7 @@ return {
 			dim = { enabled = true },
 			git = { enabled = true },
 			gitbrowse = { enabled = true },
-			indent = { enabled = true },
+			indent = { enabled = false },
 			notifier = {
 				enabled = true,
 				timeout = 3000,
