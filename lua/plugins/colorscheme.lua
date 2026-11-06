@@ -20,7 +20,7 @@ return {
 				styles = {
 					bold = true,
 					italic = false,
-					transparency = false,
+					transparency = true, -- terminal bg shows through (set terminal bg to #111111)
 				},
 
 				highlight_groups = {

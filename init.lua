@@ -4,17 +4,12 @@ require("user")
 
 -- Color scheme
 -- Usage:
---   ColorMyPencils()                       -> rose-pine on near-black
+--   ColorMyPencils()                       -> rose-pine (transparent; terminal bg shows through)
 --   ColorMyPencils("vague")                -> vague with its own background
---   ColorMyPencils("rose-pine", "none")    -> transparent background
---   :Pencils rose-pine #0f0f10             -> same thing from the cmdline, no quotes needed
-local default_bg = {
-	["rose-pine"] = "#111111",
-}
-
+--   ColorMyPencils("vague", "none")        -> force a transparent background
+--   :Pencils vague #0f0f10                 -> same thing from the cmdline, no quotes needed
 function ColorMyPencils(color, bg)
 	color = color or "rose-pine"
-	bg = bg or default_bg[color]
 
 	vim.cmd.colorscheme(color)
 
