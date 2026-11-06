@@ -1,6 +1,4 @@
-local mocha = require("catppuccin.palettes").get_palette("mocha")
-
-vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = mocha.sapphire })
+vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#74c7ec" })
 
 local filtered_message = { "No information available" }
 
