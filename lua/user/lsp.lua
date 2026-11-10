@@ -119,9 +119,9 @@ vim.lsp.enable(vim.tbl_keys(servers))
 vim.diagnostic.config({
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = "\u{f659} ",
-			[vim.diagnostic.severity.WARN] = "\u{f529} ",
-			[vim.diagnostic.severity.HINT] = "\u{f835} ",
+			[vim.diagnostic.severity.ERROR] = "\u{f015a} ",
+			[vim.diagnostic.severity.WARN] = "\u{f002a} ",
+			[vim.diagnostic.severity.HINT] = "\u{f0336} ",
 			[vim.diagnostic.severity.INFO] = "\u{f449} ",
 		},
 		numhl = {
