@@ -1,36 +1,40 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
+local opt = vim.opt
 
-vim.opt.mouse = "a"
+opt.number = true
+opt.relativenumber = true
+opt.mouse = "a"
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smartindent = true
+opt.breakindent = true
+opt.cindent = true
+opt.wrap = false
 
-vim.opt.smartindent = true
-vim.opt.breakindent = true
-vim.opt.cindent = true
+opt.swapfile = false
+opt.backup = false
+opt.undodir = vim.env.HOME .. "/.vim/undodir"
+opt.undofile = true
 
-vim.opt.wrap = false
-
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
--- vim.o.cursorline = true
-vim.opt.colorcolumn = "80"
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
+opt.colorcolumn = "80"
+opt.termguicolors = true
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+opt.isfname:append("@-@")
+opt.updatetime = 50
+opt.incsearch = true
+opt.hlsearch = true
 
 -- views can only be fully collapsed with the global statusline
-vim.opt.laststatus = 3
--- Default splitting will cause your main splits to jump when opening an edgebar.
--- To prevent this, set `splitkeep` to either `screen` or `topline`.
-vim.opt.splitkeep = "screen"
+opt.laststatus = 3
+opt.splitkeep = "screen"
+
+-- Rounded borders for every floating window (hover, diagnostics, Mason, ...)
+opt.winborder = "rounded"
+
+-- Native as-you-type completion: language server first ("o"), then buffer words
+opt.autocomplete = true
+opt.complete = "o,.,w,b"
+opt.completeopt = { "menuone", "noselect", "noinsert", "popup", "fuzzy" }
