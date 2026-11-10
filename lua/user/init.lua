@@ -1,6 +1,0 @@
-require("user.keymaps")
-require("user.lazy")
-require("user.options")
-require("user.highlight_yank")
-require("user.rotate_window")
-require("user.edit_text")

@@ -1,84 +1,61 @@
-vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+local map = vim.keymap.set
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+map("n", "<leader>pv", vim.cmd.Ex)
+
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Center buffer while navigating
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "{", "{zz")
-vim.keymap.set("n", "}", "}zz")
-vim.keymap.set("n", "G", "Gzz")
-vim.keymap.set("n", "gg", "ggzz")
-vim.keymap.set("n", "gd", "gdzz")
-vim.keymap.set("n", "<C-i>", "<C-i>zz")
-vim.keymap.set("n", "<C-o>", "<C-o>zz")
-vim.keymap.set("n", "%", "%zz")
-vim.keymap.set("n", "*", "*zz")
-vim.keymap.set("n", "#", "#zz")
+map("n", "J", "mzJ`z")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+map("n", "{", "{zz")
+map("n", "}", "}zz")
+map("n", "G", "Gzz")
+map("n", "gg", "ggzz")
+map("n", "gd", "gdzz")
+map("n", "<C-i>", "<C-i>zz")
+map("n", "<C-o>", "<C-o>zz")
+map("n", "%", "%zz")
+map("n", "*", "*zz")
+map("n", "#", "#zz")
 
-vim.keymap.set("n", "L", "$")
-vim.keymap.set("n", "H", "^")
+map("n", "L", "$")
+map("n", "H", "^")
 
-vim.keymap.set("x", "<leader>p", [["_dP]])
+map("x", "<leader>p", [["_dP]])
+map({ "n", "v" }, "<leader>y", [["+y]])
+map("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+map("n", "Q", "<nop>")
+map("n", "<leader>R", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set("n", "<leader>df", ":DiffviewFileHistory %<CR>")
-vim.keymap.set("n", "<leader>dc", ":DiffviewClose<CR>")
+-- Diagnostics
+map("n", "gh", vim.diagnostic.open_float)
+map("n", "[d", function()
+	vim.diagnostic.jump({ count = -1 })
+end, { desc = "Go to previous [D]iagnostic message" })
+map("n", "]d", function()
+	vim.diagnostic.jump({ count = 1 })
+end, { desc = "Go to next [D]iagnostic message" })
+map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
-vim.keymap.set("n", "Q", "<nop>")
+map("n", "<leader>rw", "<cmd>RotateWindows<cr>", { desc = "[R]otate [W]indows" })
+map("n", "gx", ":sil !open <cWORD><cr>", { silent = true })
 
-vim.keymap.set("n", "<leader>R", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- Keep the selection after indenting
+map("x", "<", "<gv")
+map("x", ">", ">gv")
 
-vim.keymap.set("n", "gh", vim.diagnostic.open_float)
+-- Treesitter incremental selection, native in 0.12 (`an` grows, `in` shrinks)
+map("n", "<C-space>", "van", { remap = true, desc = "Start incremental selection" })
+map("x", "<C-space>", "an", { remap = true, desc = "Grow selection" })
+map("x", "<bs>", "in", { remap = true, desc = "Shrink selection" })
 
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.incsearch = true
-vim.opt.hlsearch = true
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
--- Press leader rw to rotate open windows
-vim.keymap.set("n", "<leader>rw", ":RotateWindows<cr>", { desc = "[R]otate [W]indows" })
-
--- Press gx to open the link under the cursor
-vim.keymap.set("n", "gx", ":sil !open <cWORD><cr>", { silent = true })
-
--- Reselect the last visual selection
-vim.keymap.set("x", "<", function()
-	-- Move selected text up/down in visual mode
-	vim.cmd("normal! <<")
-	vim.cmd("normal! gv")
-end)
-
-vim.keymap.set("x", ">", function()
-	vim.cmd("normal! >>")
-	vim.cmd("normal! gv")
-end)
-
--- CodeCompanion
-vim.keymap.set(
-	"n",
-	"<leader>ai",
-	"<cmd>CodeCompanionChat Toggle<cr>",
-	{ desc = "Toggle Code Companion chat", noremap = true, silent = true }
-)
-vim.keymap.set(
-	"x",
-	"<leader>ai",
-	"<cmd>'<,'>CodeCompanion<cr>",
-	{ desc = "Prompt Code Companion on the current selection", noremap = true, silent = true }
-)
-
-vim.cmd([[cab cc CodeCompanion]])
+-- Native undotree (bundled with Nvim 0.12)
+vim.cmd.packadd("nvim.undotree")
+map("n", "<leader>u", vim.cmd.Undotree, { desc = "Toggle [U]ndotree" })
